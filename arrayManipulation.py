@@ -1,21 +1,25 @@
 # https://www.hackerrank.com/challenges/crush/problem
 
 
-def arrayManipulation( n: int, queries : list[list[int]]): # O(n^4)
+def arrayManipulation( n: int, queries : list[list[int]]): # O(n^3)
 
 
     array = [0] * n             # O(n)
 
     for query in queries:       # O(n)
 
-        a = query[0] - 1
-        b = query[1]
-        k = query[2]
+        array[query[0] - 1]     += query[2]
+        array[query[1]]         -= query[2]
 
-        for i in range(a,b):    # O(n)
-            array[i] += k
+    maxValue = 0
 
-    maxValue = max(array)       # O(n)
+    i = 0
+
+    for num in array:           # O(n)
+        i += num
+
+        if i > maxValue:
+            maxValue = i     
 
     return maxValue
 
