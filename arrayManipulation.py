@@ -4,25 +4,29 @@
 def arrayManipulation( n: int, queries : list[list[int]]): # O(n^4)
 
 
-    array = [0] * n             # O(n)
+    array = [0] * n
+    maxVal = 0             # O(n)
 
     for query in queries:       # O(n)
 
-        a = query[0] - 1
-        b = query[1]
-        k = query[2]
+       for i in range(query[0] - 1,query[1]): # O(n)
+           array[i] += query[2]
 
-        for i in range(a,b):    # O(n)
-            array[i] += k
+           if array[i] > maxVal:
+                maxVal = array[i]
 
-    maxValue = max(array)       # O(n)
 
-    return maxValue
+
+
+
+
+    return maxVal
 
 
 
 
 print(arrayManipulation( 10, [[1, 2, 100],[2, 5, 100], [3, 4, 100]]))
+print(200)
 
 
 
