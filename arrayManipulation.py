@@ -1,7 +1,7 @@
 # https://www.hackerrank.com/challenges/crush/problem
 
 
-def arrayManipulation( n: int, queries : list[list[int]]): # O(n^4)
+def arrayManipulation( n: int, queries : list[list[int]]): # O(n^3)
 
 
     array = [0] * n
